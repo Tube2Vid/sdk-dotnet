@@ -79,10 +79,6 @@ public sealed class Tube2VidClient : IDisposable
     public Task<IReadOnlyList<PlatformHealth>> GetPlatformHealthAsync(CancellationToken ct = default) =>
         GetAsync<IReadOnlyList<PlatformHealth>>("/v1/platforms/health", ct);
 
-    /// <summary>Recent public downloads.</summary>
-    public Task<IReadOnlyList<RecentDownload>> GetRecentDownloadsAsync(int limit = 18, CancellationToken ct = default) =>
-        GetAsync<IReadOnlyList<RecentDownload>>($"/v1/public/recent-downloads?limit={limit}", ct);
-
     /// <summary>Platform health check history, optionally for one platform slug.</summary>
     public Task<IReadOnlyList<StatusHistoryItem>> GetStatusHistoryAsync(int limit = 50, string? platform = null, CancellationToken ct = default) =>
         GetAsync<IReadOnlyList<StatusHistoryItem>>(

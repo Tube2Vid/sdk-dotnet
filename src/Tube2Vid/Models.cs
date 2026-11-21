@@ -134,27 +134,6 @@ public sealed record PlatformHealth
     public bool? Repaired { get; init; }
 }
 
-/// <summary>A recent public download.</summary>
-public sealed record RecentDownload
-{
-    /// <summary>Platform slug.</summary>
-    public string Platform { get; init; } = "";
-    /// <summary>Media title.</summary>
-    public string? Title { get; init; }
-    /// <summary>Source URL.</summary>
-    public string? SourceUrl { get; init; }
-    /// <summary>Mode.</summary>
-    public string Mode { get; init; } = "";
-    /// <summary>Format.</summary>
-    public string Format { get; init; } = "";
-    /// <summary>Status.</summary>
-    public string Status { get; init; } = "";
-    /// <summary>Thumbnail URL.</summary>
-    public string? ThumbnailUrl { get; init; }
-    /// <summary>Creation time.</summary>
-    public DateTimeOffset CreatedAt { get; init; }
-}
-
 /// <summary>One entry in a job's event log.</summary>
 public sealed record JobEvent
 {

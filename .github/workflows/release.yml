@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      HAS_NUGET: ${{ secrets.NUGET_API_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+      - name: Test
+        run: dotnet test tests/Tube2Vid.Tests -c Release
+      - name: Pack
+        run: dotnet pack src/Tube2Vid -c Release -o artifacts -p:Version="${GITHUB_REF_NAME#v}"
+      - name: Publish to NuGet
+        if: env.HAS_NUGET == 'true'
+        run: dotnet nuget push "artifacts/*.nupkg" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Skip publish
+        if: env.HAS_NUGET != 'true'
+        run: echo "::warning::NUGET_API_KEY is not set; skipping publish."

@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Tube2Vid/Tube2Vid.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Tube2Vid.Tests/Tube2Vid.Tests.csproj" />
+  </Folder>
+</Solution>

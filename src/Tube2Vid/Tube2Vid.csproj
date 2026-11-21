@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RootNamespace>Tube2Vid</RootNamespace>
+
+    <PackageId>Tube2Vid</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Tube2Vid</Authors>
+    <Company>Tube2Vid</Company>
+    <Product>Tube2Vid .NET SDK</Product>
+    <Title>Tube2Vid C# SDK: YouTube, TikTok and Instagram video downloader API</Title>
+    <Description>C# / .NET client for the Tube2Vid video downloader API: download YouTube, TikTok, Instagram and 1,800+ sites as MP4 or MP3 with HttpClient and System.Text.Json.</Description>
+    <PackageTags>tube2vid;youtube-downloader;video-downloader;tiktok-downloader;instagram-downloader;mp3;mp4;media-download;api-client;sdk;csharp;dotnet</PackageTags>
+    <Copyright>Copyright (c) 2026 Tube2Vid</Copyright>
+    <PackageProjectUrl>https://tube2vid.com</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Tube2Vid/sdk-dotnet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>https://github.com/Tube2Vid/sdk-dotnet/blob/main/CHANGELOG.md</PackageReleaseNotes>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+</Project>

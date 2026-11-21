@@ -42,9 +42,6 @@ public static class JobStateExtensions
     public static bool IsTerminal(this JobState state) => state is JobState.Completed or JobState.Failed;
 }
 
-/// <summary>A solved <see cref="PowChallenge"/>.</summary>
-public sealed record ProofOfWork(string Nonce, string ExpiresAt, int Difficulty, string Signature, string Solution);
-
 /// <summary>Body of a job submission.</summary>
 public sealed record JobSubmitRequest(string Url)
 {
@@ -56,10 +53,8 @@ public sealed record JobSubmitRequest(string Url)
     public string? Format { get; init; }
     /// <summary>Quality, e.g. best or 720p.</summary>
     public string? Quality { get; init; }
-    /// <summary>Browser-only human check; not needed with an API key.</summary>
-    public string? TurnstileToken { get; init; }
-    /// <summary>Browser-only work challenge; not needed with an API key.</summary>
-    public ProofOfWork? Pow { get; init; }
+    /// <summary>Browser flow only: an Atlas captcha token for the action "download"; not needed with an API key.</summary>
+    public string? CaptchaToken { get; init; }
 }
 
 /// <summary>Response to a job submission.</summary>
@@ -303,9 +298,6 @@ public sealed record OperationalMetrics
 
 /// <summary>Service liveness.</summary>
 public sealed record ServiceHealth(bool Ok, string Service, DateTimeOffset Time);
-
-/// <summary>A work challenge for the anonymous flow.</summary>
-public sealed record PowChallenge(string Nonce, string ExpiresAt, int Difficulty, string Signature);
 
 /// <summary>Body of an API key creation.</summary>
 public sealed record ApiKeyCreateRequest(string Name)

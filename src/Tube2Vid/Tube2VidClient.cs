@@ -88,10 +88,7 @@ public sealed class Tube2VidClient : IDisposable
     public Task<OperationalMetrics> GetOperationalMetricsAsync(CancellationToken ct = default) =>
         GetAsync<OperationalMetrics>("/v1/ops/metrics", ct);
 
-    /// <summary>A work challenge for <see cref="SubmitPublicJobAsync"/>.</summary>
-    public Task<PowChallenge> GetPowChallengeAsync(CancellationToken ct = default) => GetAsync<PowChallenge>("/v1/challenges/pow", ct);
-
-    /// <summary>Anonymous submission, as the website does it. Requires <c>Pow</c> (and <c>TurnstileToken</c> where the human check is on).</summary>
+    /// <summary>Anonymous submission, as the website does it. Requires a solved Atlas <c>CaptchaToken</c>; scripts should use <see cref="SubmitJobAsync"/> with an API key.</summary>
     public Task<QueuedJob> SubmitPublicJobAsync(JobSubmitRequest request, CancellationToken ct = default) =>
         PostAsync<QueuedJob>("/v1/public/jobs", request, ct);
 

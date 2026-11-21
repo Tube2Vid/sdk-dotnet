@@ -93,7 +93,7 @@ You can pass your own `HttpClient` (for example from `IHttpClientFactory`) as th
 | Jobs (API key) | `SubmitJobAsync`, `SubmitAuthenticatedJobAsync`, `GetJobStatusAsync`, `GetJobEventsAsync`, `WaitForJobAsync`, `GetDownloadUrl`, `GetDownloadLinkAsync`, `DownloadJobAsync` |
 | Account | `GetUsageAsync`, `ListApiKeysAsync`, `CreateApiKeyAsync`, `CreateCheckoutAsync` |
 | Platforms and status (no key) | `ListPlatformsAsync`, `GetPlatformHealthAsync`, `GetStatusHistoryAsync`, `GetOperationalMetricsAsync`, `GetHealthAsync` |
-| Anonymous browser flow | `GetPowChallengeAsync`, `SubmitPublicJobAsync`, `GetPublicJobStatusAsync`, `GetPublicDownloadUrl`, `GetPublicThumbnailUrl` |
+| Anonymous browser flow | `SubmitPublicJobAsync`, `GetPublicJobStatusAsync`, `GetPublicDownloadUrl`, `GetPublicThumbnailUrl` |
 
 ## Links
 

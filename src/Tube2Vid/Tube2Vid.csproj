@@ -9,7 +9,7 @@
     <RootNamespace>Tube2Vid</RootNamespace>
 
     <PackageId>Tube2Vid</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Authors>Tube2Vid</Authors>
     <Company>Tube2Vid</Company>
     <Product>Tube2Vid .NET SDK</Product>
